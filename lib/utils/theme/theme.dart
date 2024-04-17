@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/utils/theme/custom_themes/text_theme.dart';
 
 class TAppTheme {
 
   TAppTheme._();
 
   static ThemeData lightTheme = ThemeData(
-      primaryColor: Colors.white,
-      brightness: Brightness.light,
-      primarySwatch: Colors.blue
+    useMaterial3: true,
+    fontFamily: 'Poppins',
+    brightness: Brightness.light,
+    primaryColor: Colors.blue,
+    scaffoldBackgroundColor: Colors.white,
+    textTheme: TTextTheme.lightTextTheme
+
   );
   static ThemeData darkTheme = ThemeData(
-      primaryColor: Colors.white,
+      useMaterial3: true,
+      fontFamily: 'Poppins',
       brightness: Brightness.light,
-      primarySwatch: Colors.blue
+      primaryColor: Colors.blue,
+      scaffoldBackgroundColor: Colors.white,
+      textTheme: TTextTheme.darkTextTheme
   );
 
 }

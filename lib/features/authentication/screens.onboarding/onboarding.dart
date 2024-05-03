@@ -1,9 +1,14 @@
+import 'package:ecommerce/features/authentication/screens.onboarding/widgets/onboarding_page.dart';
+import 'package:ecommerce/features/authentication/screens.onboarding/widgets/onboarding_skip.dart';
+import 'package:ecommerce/utils/constants/colors.dart';
 import 'package:ecommerce/utils/constants/image_strings.dart';
+import 'package:ecommerce/utils/constants/sizes.dart';
 import 'package:ecommerce/utils/device/device_utility.dart';
+
 import 'package:flutter/material.dart';
 import 'package:ecommerce/utils/constants/text_strings.dart';
-import 'package:ecommerce/utils/constants/sizes.dart';
-import 'package:ecommerce/utils/helpers/helper_functions.dart';
+
+
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -13,10 +18,10 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: Stack(
-        children: [
+        children:  [
 
           PageView(
-            children: [
+            children: const [
               OnBoardingPage(
                 image: TImages.onBoardingImage1,
                 title: TTexts.onBoardingTitle1,
@@ -35,55 +40,24 @@ class OnBoardingScreen extends StatelessWidget {
             ],
           ),
 
-          OnBoardingSkip()
+          OnBoardingSkip(),
+
+          Positioned(
+              bottom: TDeviceUtils.getBottomNavigationHeight() * 25,
+              left : TSizes.defaultSpace,
+              child: SmoothPageIndicator(
+                controller: PageController(),
+                  count: 3,
+                  effect : const ExpandingDotsEffect(
+                      activeDotColor: TColors.dark,dotHeight:6
+              )
+
+    ))
         ],
       ),
     );
   }
 }
 
-class OnBoardingSkip extends StatelessWidget {
-  const OnBoardingSkip({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(top:TDeviceUtils.getAppBarHeight(),right: TSizes.defaultSpace,child: TextButton(onPressed: (){},child: const Text('Skip'),));
-  }
-}
 
-class OnBoardingPage extends StatelessWidget {
-  const OnBoardingPage({
-    super.key, required this.image, required this.title, required this.subTitle,
-  });
-
-  final String image,title, subTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
-      child: Column(
-        children: [
-          Image(
-            width: THelperFunctions.screenWidth() * 0.8,
-            height: THelperFunctions.screenWidth() * 0.6,
-            image: AssetImage(image),
-          ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headlineMedium,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: TSizes.spaceBtwItems),
-          Text(
-            subTitle,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-    );
-  }
-}

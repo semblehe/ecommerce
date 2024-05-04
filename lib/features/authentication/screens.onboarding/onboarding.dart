@@ -40,19 +40,21 @@ class OnBoardingScreen extends StatelessWidget {
             ],
           ),
 
-          OnBoardingSkip(),
+          OnBoardingSkip()
 
-          Positioned(
-              bottom: TDeviceUtils.getBottomNavigationHeight() * 25,
-              left : TSizes.defaultSpace,
-              child: SmoothPageIndicator(
-                controller: PageController(),
-                  count: 3,
-                  effect : const ExpandingDotsEffect(
-                      activeDotColor: TColors.dark,dotHeight:6
-              )
-
-    ))
+    //       Positioned(
+    //           bottom: TDeviceUtils.getBottomNavigationHeight() * 25,
+    //           left : TSizes.defaultSpace,
+    //           child:
+    //           // SmoothPageIndicator(
+    //           //   controller: PageController(),
+    //           //     count: 3,
+    //           //     effect : const ExpandingDotsEffect(
+    //           //         activeDotColor: TColors.dark,dotHeight:6
+    //           // )
+    //
+    // )
+    // )
         ],
       ),
     );

@@ -4,8 +4,6 @@ import 'package:ecommerce/features/authentication/screens.onboarding/widgets/onb
 import 'package:ecommerce/features/authentication/screens.onboarding/widgets/onboarding_page.dart';
 import 'package:ecommerce/features/authentication/screens.onboarding/widgets/onboarding_skip.dart';
 import 'package:ecommerce/utils/constants/image_strings.dart';
-import 'package:ecommerce/utils/constants/sizes.dart';
-import 'package:ecommerce/utils/device/device_utility.dart';
 
 import 'package:flutter/material.dart';
 import 'package:ecommerce/utils/constants/text_strings.dart';
